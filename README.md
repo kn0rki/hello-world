@@ -6,3 +6,5 @@ RTFM? !
 Notepad++ test!
 
 yet another test
+
+test
