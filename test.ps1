@@ -56,6 +56,6 @@
 
 }
 
-Write-Output 'test';
+Write-Output "test";
 
-Get-Direction -Origin 'Ratingen' -Destination 'Wuppertal'
+Get-Direction 
