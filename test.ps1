@@ -10,11 +10,13 @@
     
     $Units='metric' # Default set to Kilometers
 
-    # If Switch is selected, use 'Miles' as the Unit
+    # If Swit ch is selected, use 'Miles' as the Unit
     If($InMiles){$Units = 'imperial'}
 
     #Requesting Web Page
-    $webpage = Invoke-WebRequest "https://maps.googleapis.com/maps/api/directions/xml?origin=$Origin&destination=$Destination&mode=$($mode.toLower())&units=$Units&key=AIzaSyAjkqgmCw15XhKat2Z-cIGZ-rzmE0xXHjc" -UseBasicParsing -ErrorVariable +err
+    $webpage =  Invoke-WebRequest "https://maps.googleapis.com/maps/api/directions/xml?origin=$Origin&destination=$Destination&mode=$($mode.toLower())&units=$Units&key=AIzaSyAjkqgmCw15XhKat2Z-cIGZ-rzmE0xXHjc" -UseBasicParsing -ErrorVariable +err
+
+
 
     # Capturing the HTML output
     $content = $webpage.Content
@@ -58,4 +60,6 @@
 
 Write-Output "test";
 
-Get-Direction 
+Get-Direction
+
+foo.bar test
