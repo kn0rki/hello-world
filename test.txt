@@ -7,3 +7,6 @@ ssh test
 
 Additional Visual Studio Code Editor test.
 test again.
+
+
+vscode && ssh test
