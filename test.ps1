@@ -7,7 +7,7 @@
         [Parameter(Position=2)] [ValidateSet('driving','bicycling','walking')] $Mode ='driving',
         [Switch] $InMiles
     )
-    
+
     $Units='metric' # Default set to Kilometers
 
     # If Switch is selected, use 'Miles' as the Unit
@@ -39,13 +39,13 @@
         $Duration = (Select-Xml -Content $content -xpath '//route/leg/step/duration/text').Node.InnerText
         $Distance = (Select-Xml -Content $content -xpath '//route/leg/step/distance/text').Node.InnerText
         $Instructions = (Select-Xml -Content $content -xpath '//route/leg/step/html_instructions').Node.InnerText | ForEach-Object{ Clean-String $_}
-        
+
         $Object = @()
         for($i=0;$i -le $instructions.count;$i++)
         {
             $Object += New-Object psobject -Property @{TravelMode=$Mode[$i];Duration=$Duration[$i];Distance= $Distance[$i];'Instructions'= $Instructions[$i]}
         }
-        
+
         Return $Object
     }
     else
@@ -58,4 +58,4 @@
 
 Write-Output "test";
 
-Get-Direction 
+Get-Direction
