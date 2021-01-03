@@ -18,7 +18,7 @@ jobs:
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           install-module PSScriptAnalyzer -AllowClobber -AcceptLicense -Confirm:$false
       - name: invoke Scriptanalyzer 
-        run: invoke-scriptanalyzer -path ./
+        run: invoke-scriptanalyzer -EnableExit -path ./
 
   # This workflow contains a single job called "build"
   build:
