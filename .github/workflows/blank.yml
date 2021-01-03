@@ -12,7 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: invoke Scriptanalyzer
+      - name: install module
+        run: install-module PSScriptAnalyzer -scope CurrentUser -AllowClobber -AcceptLicense -Confirm:$false
+      - name: invoke Scriptanalyzer 
         run: invoke-scriptanalyzer -path ./
 
   # This workflow contains a single job called "build"
