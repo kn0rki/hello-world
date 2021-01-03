@@ -3,8 +3,6 @@ try {
     Get-ChildItem -path GibtEsnicht
 }
 catch {
-    $global:test = $_
-    $_
+    $_.Exception
 }
 
-$test.Exception

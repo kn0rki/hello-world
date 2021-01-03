@@ -20,7 +20,7 @@
     $content = $webpage.Content
 
     #To Clear unwanted data from the String
-    Function Clean-String($Str)
+    Function Clear-String($Str)
     {
         $str = $Str.replace('<div style="font-size:0.9em">','')
         $str = $str.replace('</div>','')
@@ -38,7 +38,7 @@
         $Mode = (Select-Xml -Content $content -xpath '//route/leg/step/travel_mode').Node.InnerText
         $Duration = (Select-Xml -Content $content -xpath '//route/leg/step/duration/text').Node.InnerText
         $Distance = (Select-Xml -Content $content -xpath '//route/leg/step/distance/text').Node.InnerText
-        $Instructions = (Select-Xml -Content $content -xpath '//route/leg/step/html_instructions').Node.InnerText | ForEach-Object{ Clean-String $_}
+        $Instructions = (Select-Xml -Content $content -xpath '//route/leg/step/html_instructions').Node.InnerText | ForEach-Object{ Clear-String $_}
 
         $Object = @()
         for($i=0;$i -le $instructions.count;$i++)
